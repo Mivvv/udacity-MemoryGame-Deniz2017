@@ -138,6 +138,10 @@ function scoreStars(){
 	}
 }
 
+/* https://www.w3schools.com/howto/howto_css_modals.asp
+ * helped me to create modal to show the victory screen as an overlay
+ */
+
 function popupVictory() {
    var popup = document.getElementById('victory-container');
    popup.style.display = "block";
@@ -148,6 +152,10 @@ function popupVictory() {
 		} 
 
 }
+
+/* https://stackoverflow.com/questions/17650776/add-remove-html-inside-div-using-javascript
+ *  link helped me a lot to add messages/stars to victory screen
+ */
 
  function checkVictory(){
 	if (matched_cards.length == card_list.length){
