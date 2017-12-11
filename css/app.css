@@ -107,3 +107,44 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*
+ *
+ */
+ 
+.victory-container {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.victory-screen{
+    margin: auto;
+    width: 50%;
+    padding: 100px;
+	min-height: 200px;
+	min-width: 200px;
+    flex-wrap: wrap;
+}
+
+.victory-header {
+    padding: 2px 16px;
+    background-color: blue;
+    color: white;
+}
+
+.victory-body {
+	padding: 2px 16px;
+	background-color: cyan;
+}
+
+.victory-footer {
+    padding: 2px 16px;
+    background-color: blue;
+    color: white;
+}
