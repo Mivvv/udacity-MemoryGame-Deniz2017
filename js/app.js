@@ -10,6 +10,8 @@ var matched_cards = [];
 
 var moves = 0;
 
+var stars = 4;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -109,26 +111,37 @@ function moveCounter(){
 
 function scoreStars(){
 	if (moves == 8){
+		stars = 4;
 	}
-	else if ( moves >= 8 && moves <= 11){
-		$('.stars li:last-child .fa').removeClass("fa-star");
-		$('.stars li:last-child .fa').addClass("fa-star-o");
-	}else if ( moves >=12 && moves <=15){
+	else if ( moves >= 8 && moves <= 12){
+		
+		stars = 3;
+	}else if ( moves >=12 && moves <=17){
 		$('.stars li:nth-child(3) .fa').removeClass("fa-star");
 		$('.stars li:nth-child(3) .fa').addClass("fa-star-o");
-	}else if ( moves >=16 && moves <= 19){
+		stars = 2;
+	}else if ( moves >=18 && moves <= 23){
 		$('.stars li:nth-child(2) .fa').removeClass("fa-star");
 		$('.stars li:nth-child(2) .fa').addClass("fa-star-o");
-	}else if (moves >=20 && moves <= 23){
+		stars = 1;
+	}else if (moves >=23 && moves <= 28){
 		$('.stars li .fa').removeClass("fa-star");
 		$('.stars li .fa').addClass("fa-star-o");
+		stars = 0;
+	}else if (moves >=29){
+		stars = -1;
 	}
 }
  
  function checkVictory(){
 	 if (matched_cards.length == card_list.length){
-		 console.log("Awww yisss");
-		 
+		 if (matched_cards.length == card_list.length){
+			 i = 0;
+			 for(i=0;i < stars; i++){
+				 starScore = document.createElement('i');
+				 starScore.className = "fa fa-star";
+				 document.getElementById('star-score').appendChild(starScore);
+		 	}
 		 //change this into pop-up victory screen
-	 }
+	 	}
  }
