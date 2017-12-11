@@ -84,9 +84,13 @@ function checkCards(card){
 		if (card1.childNodes[0].className == card2.childNodes[0].className){
 			card1.className = "card match";
 			card2.className = "card match";
+			
 			matched_cards.push(card1.childNodes[0].className);
+			
 			opened_cards.pop();
 			opened_cards.pop();
+			
+			checkVictory();
 		}else {
 			card1.className = "card";
 			card2.className = "card";
@@ -102,3 +106,29 @@ function moveCounter(){
 	moves++;
 	$('.moves').text(moves);
 }
+
+function scoreStars(){
+	if (moves == 8){
+	}
+	else if ( moves >= 8 && moves <= 11){
+		$('.stars li:last-child .fa').removeClass("fa-star");
+		$('.stars li:last-child .fa').addClass("fa-star-o");
+	}else if ( moves >=12 && moves <=15){
+		$('.stars li:nth-child(3) .fa').removeClass("fa-star");
+		$('.stars li:nth-child(3) .fa').addClass("fa-star-o");
+	}else if ( moves >=16 && moves <= 19){
+		$('.stars li:nth-child(2) .fa').removeClass("fa-star");
+		$('.stars li:nth-child(2) .fa').addClass("fa-star-o");
+	}else if (moves >=20 && moves <= 23){
+		$('.stars li .fa').removeClass("fa-star");
+		$('.stars li .fa').addClass("fa-star-o");
+	}
+}
+ 
+ function checkVictory(){
+	 if (matched_cards.length == card_list.length){
+		 console.log("Awww yisss");
+		 
+		 //change this into pop-up victory screen
+	 }
+ }
