@@ -134,14 +134,40 @@ function scoreStars(){
 }
  
  function checkVictory(){
-	 if (matched_cards.length == card_list.length){
-		 if (matched_cards.length == card_list.length){
+	if (matched_cards.length == card_list.length){
 			 i = 0;
 			 for(i=0;i < stars; i++){
 				 starScore = document.createElement('i');
 				 starScore.className = "fa fa-star";
 				 document.getElementById('star-score').appendChild(starScore);
-		 	}
+		 		}
+		para = document.getElementById("custom-message");
+		switch(stars){
+			 case 0:
+				text0 = document.createTextNode("Try harder next time!");
+				para.appendChild(text0);
+				break;
+			 case 1:
+				text1 = document.createTextNode("You can do better! Keep going!");
+				para.appendChild(text1);
+				break;
+			 case 2:
+				text2 = document.createTextNode("Good, good! Almost full stars!");
+				para.appendChild(text2);
+				break;
+			 case 3:
+				text3 = document.createTextNode("Perfect! Good Job!");
+				para.appendChild(text3);
+				 break;
+			 case 4:
+				text4 = document.createTextNode("Either you are cheating, or too damn lucky!");
+				para.appendChild(text4);
+				break;
+			 case -1:
+				textMinus = document.createTextNode("Dude.... Really?");
+				para.appendChild(textMinus);
+				break;
+		 		}
 		 //change this into pop-up victory screen
-	 	}
+	 }
  }
