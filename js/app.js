@@ -132,7 +132,18 @@ function scoreStars(){
 		stars = -1;
 	}
 }
- 
+
+function popupVictory() {
+   var popup = document.getElementById('victory-container');
+   popup.style.display = "block";
+			window.onclick = function(event) {
+			if (event.target == popup) {
+			popup.style.display = "none";
+			}
+		} 
+
+}
+
  function checkVictory(){
 	if (matched_cards.length == card_list.length){
 			 i = 0;
@@ -168,6 +179,6 @@ function scoreStars(){
 				para.appendChild(textMinus);
 				break;
 		 		}
-		 //change this into pop-up victory screen
+		 popupVictory();
 	 }
  }
