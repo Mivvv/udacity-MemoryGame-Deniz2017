@@ -117,8 +117,8 @@ function scoreStars(){
 		
 		stars = 3;
 	}else if ( moves >=12 && moves <=17){
-		$('.stars li:nth-child(3) .fa').removeClass("fa-star");
-		$('.stars li:nth-child(3) .fa').addClass("fa-star-o");
+		$('.stars li:last-child .fa').removeClass("fa-star");
+		$('.stars li:last-child .fa').addClass("fa-star-o");
 		stars = 2;
 	}else if ( moves >=18 && moves <= 23){
 		$('.stars li:nth-child(2) .fa').removeClass("fa-star");
