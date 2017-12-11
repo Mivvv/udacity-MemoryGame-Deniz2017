@@ -42,8 +42,6 @@ function shuffleDeck(){
 	
 	deck_elements = shuffle(deck_elements); // Shuffled the deck
 
-	card_class = $('<li class="card"></li>');
-
 	for (i=0; i< deck_elements.length; i++){
 		$('.deck').append('<li class="card"><i class="fa fa-'+deck_elements[i]+'"></i></li>');
 	}	// add cards with HTML into deck class
