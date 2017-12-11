@@ -8,6 +8,8 @@ var opened_cards = [];
 
 var matched_cards = [];
 
+var moves = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -70,13 +72,14 @@ for (i=0; i< deck_elements.length; i++){
 function showCard(card){
 	card.className = "card open show";
 	opened_cards.push(card);
-	console.log(opened_cards);
 }
  
 function checkCards(card){
 	if (opened_cards.length > 1){
 		card1 = opened_cards[opened_cards.length - 1];
 		card2 = opened_cards[opened_cards.length - 2];
+		
+		moveCounter();
 		
 		if (card1.childNodes[0].className == card2.childNodes[0].className){
 			card1.className = "card match";
@@ -95,3 +98,7 @@ function checkCards(card){
 }
  
  
+function moveCounter(){
+	moves++;
+	$('.moves').text(moves);
+}
