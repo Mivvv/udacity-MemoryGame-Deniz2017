@@ -37,14 +37,21 @@ function shuffle(array) {
     return array;
 }
 
+function shuffleDeck(){
+	deck = $('.deck').empty();
+	
+	deck_elements = shuffle(deck_elements); // Shuffled the deck
+
+	card_class = $('<li class="card"></li>');
+
+	for (i=0; i< deck_elements.length; i++){
+		$('.deck').append('<li class="card"><i class="fa fa-'+deck_elements[i]+'"></i></li>');
+	}	// add cards with HTML into deck class
+
+}
+
 deck_elements = card_list.concat(card_list); // Created the deck
-deck_elements = shuffle(deck_elements); // Shuffled the deck
-
-card_class = $('<li class="card"></li>');
-
-for (i=0; i< deck_elements.length; i++){
-	$('.deck').append('<li class="card"><i class="fa fa-'+deck_elements[i]+'"></i></li>');
-}	// add cards with HTML into deck class
+shuffleDeck()
 
 
 /*
@@ -182,3 +189,21 @@ function popupVictory() {
 		 popupVictory();
 	 }
  }
+
+ function restart(){
+	
+	opened_cards = [];
+	matched_cards = [];
+	moves = 0;
+	$('.moves').text(moves);
+	stars = 3;
+	$('.stars i').removeClass("fa-star-o");
+	$('.stars i').addClass("fa-star");
+	
+	shuffleDeck();
+}
+
+$('.restart').on('click', function (event) {
+    event.preventDefault();
+    restart();
+});
