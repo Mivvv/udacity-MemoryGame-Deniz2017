@@ -127,8 +127,7 @@ h1 {
     margin: auto;
     width: 50%;
     padding: 100px;
-	min-height: 200px;
-	min-width: 200px;
+    min-height: 200px;
     flex-wrap: wrap;
 }
 
