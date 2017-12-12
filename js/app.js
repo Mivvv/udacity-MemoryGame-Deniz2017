@@ -219,6 +219,9 @@ function popupVictory() {
 
 		}
 	 })
+	 
+    var popup = document.getElementById('victory-container');
+    popup.style.display = "none";
 }
 
 $('.restart').on('click', function (event) {
