@@ -12,6 +12,10 @@ var moves = 0;
 
 var stars = 4;
 
+var timeExecute = false;
+
+var timeRestart = false;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -35,6 +39,41 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+function timer(){
+	
+	if (!timeExecute)
+	{
+		timeExecute = true;
+		var startGame = Date.now();
+		var clocker = setInterval(function() 
+			{
+			var delta = Date.now() - startGame;
+			var sec = Math.floor(delta / 1000);
+			
+			var second = sec % 60;
+			var minute = (Math.floor(sec/60)) % 60;
+			
+			if (second < 10){
+				second = "0" + second;
+			}
+			if (minute < 10){
+				minute = "0" + minute;
+			}
+					
+			var gameTime = " " + minute + ":" + second;
+				
+			$(".timey").text(gameTime);
+			
+			if(timeRestart){
+				clearInterval(clocker);
+				timeRestart = false;
+				$('.timey').text(" 00:00")
+			}
+			
+			}, 1000);
+	}
 }
 
 function shuffleDeck(){
@@ -71,7 +110,8 @@ shuffleDeck()
 		showCard(card);
 		
 		checkCards(card);
-
+		
+		timer();
 	}
  })
 
@@ -216,7 +256,8 @@ function popupVictory() {
 			showCard(card);
 			
 			checkCards(card);
-
+			
+			timer();
 		}
 	 })
 	 
