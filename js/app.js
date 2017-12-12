@@ -207,6 +207,18 @@ function popupVictory() {
 	$('.stars i').addClass("fa-star");
 	
 	shuffleDeck();
+	 
+	$('.card').on('click', function(event){ 
+		if (event.target.className == "card"){
+			icon = event.target.childNodes[0];
+			card = event.target
+			
+			showCard(card);
+			
+			checkCards(card);
+
+		}
+	 })
 }
 
 $('.restart').on('click', function (event) {
