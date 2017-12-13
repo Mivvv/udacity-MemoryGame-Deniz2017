@@ -1,3 +1,5 @@
+/* STYLE EVERYTHING BETTER WHEN YOU ARE DONE */
+
 html {
     box-sizing: border-box;
 }
@@ -87,7 +89,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 400px;
     margin-bottom: 10px;
 }
 
@@ -96,11 +98,20 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+	margin-right: 30px;
 }
 
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+}
+
+.score-panel .moves{
+	margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+	margin-right: 30px;
 }
 
 .score-panel .restart {
@@ -125,25 +136,54 @@ h1 {
 
 .victory-screen{
     margin: auto;
+	margin-top: 150px;
     width: 50%;
-    padding: 100px;
-    min-height: 200px;
+	min-width: 200px;
     flex-wrap: wrap;
+	box-shadow: 0px 0px 20px 5px rgb(0, 120, 255);
+	border-radius: 10px;
 }
+
+/* Those beautiful background colors in victory generated from
+ * http://www.colorzilla.com/gradient-editor/
+ */
+
 
 .victory-header {
     padding: 2px 16px;
-    background-color: blue;
-    color: white;
+    color: black;
+	
+	background: rgb(42,176,237);
+	background: -moz-linear-gradient(-45deg, rgba(42,176,237,1) 0%, rgba(159,216,239,1) 49%, rgba(191,232,249,1) 50%, rgba(228,245,252,1) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(42,176,237,1) 0%,rgba(159,216,239,1) 49%,rgba(191,232,249,1) 50%,rgba(228,245,252,1) 100%);
+	background: linear-gradient(135deg, rgba(42,176,237,1) 0%,rgba(159,216,239,1) 49%,rgba(191,232,249,1) 50%,rgba(228,245,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ab0ed', endColorstr='#e4f5fc',GradientType=1 );
+	
+	
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 .victory-body {
 	padding: 2px 16px;
-	background-color: cyan;
+	
+	background: rgb(254,255,255);
+	background: -moz-linear-gradient(top, rgba(254,255,255,1) 0%, rgba(210,235,249,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
+	background: linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=0 );
 }
 
 .victory-footer {
     padding: 2px 16px;
-    background-color: blue;
-    color: white;
+    color: black;
+	
+	background: rgb(42,176,237);
+	background: -moz-linear-gradient(45deg, rgba(42,176,237,1) 0%, rgba(159,216,239,1) 49%, rgba(191,232,249,1) 50%, rgba(228,245,252,1) 100%);
+	background: -webkit-linear-gradient(45deg, rgba(42,176,237,1) 0%,rgba(159,216,239,1) 49%,rgba(191,232,249,1) 50%,rgba(228,245,252,1) 100%);
+	background: linear-gradient(45deg, rgba(42,176,237,1) 0%,rgba(159,216,239,1) 49%,rgba(191,232,249,1) 50%,rgba(228,245,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ab0ed', endColorstr='#e4f5fc',GradientType=1 );
+	
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
