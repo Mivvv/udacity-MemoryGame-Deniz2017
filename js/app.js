@@ -70,7 +70,7 @@ function timer(){
 				minute = "0" + minute;
 			}
 					
-			var gameTime = " " + minute + ":" + second;
+			var gameTime = "Time: " + minute + ":" + second;
 			
 			if (timeUpdate){
 				$(".timey").text(gameTime);
@@ -79,7 +79,7 @@ function timer(){
 			if(timeRestart){
 				clearInterval(clocker);
 				timeRestart = false;
-				$('.timey').text(" 00:00")
+				$('.timey').text("Time: 00:00")
 			}
 			
 			}, 1000);
@@ -139,7 +139,10 @@ function checkCards(card){
 
 function moveCounter(){
 	moves++;
-	$('.moves').text(moves);
+	
+	var moveText = "Moves: " + moves;
+			
+	$('.moves').text(moveText);
 	
 	scoreStars();
 }
@@ -253,7 +256,9 @@ function clicky(event){
 	timeUpdate = true;
 	
 	moves = 0;
-	$('.moves').text(moves);
+	moveText = "Moves: " + moves;
+			
+	$('.moves').text(moveText);
 	
 	stars = 3;
 	$('.stars i').removeClass("fa-star-o");
