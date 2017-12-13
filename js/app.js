@@ -6,6 +6,10 @@
 // Jk, I've decided to tidy up the code, put everything into
 // meaningful functions.
 
+// Put a modal for restart button, saying are you sure buddy kind of stuff
+// Yeah, also while doing that remember to put a cancel button.
+// Also put a play again button to popupVictory.. No need for cancel button, since we can go out by
+// clicking out of the box? hmmmmmmm
  
 /*
  * Variables
