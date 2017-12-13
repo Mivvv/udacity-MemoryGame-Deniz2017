@@ -21,20 +21,21 @@
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
-			<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">0</span> Moves
+        	<span class="moves">Moves: 0</span> 
+			
+			<span class="timey">Time: 00:00</span>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
 
-        <ul class="deck">
+        <ul class="deck" id="deck">
         </ul>
     </div>
-
+	
 	<div class="victory-container" id="victory-container">
 		<div class="victory-screen">
 			<div class="victory-header">
@@ -42,9 +43,9 @@
 			</div>
 			<div class="victory-body">
 				<p>You won the game with: <span class="moves"></span> moves equating <span id="star-score"></span> stars.</p>
-				<p>Completion time:<span class="timey></span></p>
+				<p>Completion time:<span class="timey"></span></p>
 				<div class="restart">
-					<i class="fa fa-repeat"></i>
+					<i class="fa fa-repeat"></i> <!------ make this a nice button ---->
 				</div>
 			</div>
 			<div class="victory-footer">
@@ -52,6 +53,7 @@
 			</div>
 		</div>
 	</div>
+
 
     <script src="js/app.js"></script>
 </body>
