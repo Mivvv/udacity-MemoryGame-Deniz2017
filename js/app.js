@@ -10,6 +10,7 @@
 // Yeah, also while doing that remember to put a cancel button.
 // Also put a play again button to popupVictory.. No need for cancel button, since we can go out by
 // clicking out of the box? hmmmmmmm
+
  
 /*
  * Variables
@@ -147,7 +148,7 @@ function scoreStars(){
 
 	if ( moves == 8 ){
 		stars = 4;
-	else if ( moves > 8 && moves <= 12){
+	}else if ( moves > 8 && moves <= 12){
 		stars = 3;
 	}else if ( moves >=12 && moves <=17){
 		$('.stars li:last-child .fa').removeClass("fa-star");
