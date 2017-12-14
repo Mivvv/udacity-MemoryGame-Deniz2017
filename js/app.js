@@ -42,7 +42,17 @@ function shuffle(array) {
     return array;
 }
 
-// Time function FINALLY! https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+/* Time function FINALLY! 
+ * https://stackoverflow.com/questions/29971898/how-to-create-an-accurate-timer-in-javascript
+ * Link provided me how to create a timer.
+ *
+ * timer is called many times, thus to prevent it starting again and again
+ * we check wheter the timer is executed or not.
+ * then timer updates itself per second, if timeUpdate is true.
+ * 
+ * timeRestart is used to stop the timer and restart the time to initial 00:00
+ *
+ */
 function timer(){
 	
 	if (!timeExecute)
@@ -81,9 +91,9 @@ function timer(){
 }
 
 function shuffleDeck(){
-	deck = $('.deck').empty();
+	deck = $('.deck').empty(); // emptied contents of deck.
 	
-	deck_elements = shuffle(deck_elements); // Shuffled the deck
+	deck_elements = shuffle(deck_elements); // Shuffled the deck.
 
 	for (i=0; i< deck_elements.length; i++){
 		$('.deck').append('<li class="card"><i class="fa fa-'+deck_elements[i]+'"></i></li>');
@@ -105,7 +115,17 @@ function showCard(card){
 }
 
 
- 
+/*
+ * every time two cards are checked, calls moveCounter.
+ * If two cards match, their className changes into "card match"
+ * one card icon is inserted into matched_cards array.
+ * Then removed from opened cards array.
+ * And then checkVictory is called.
+ * If not matched, cards class name reverts to original
+ * and they are removed from opened_cards array.
+ *
+ * finally, clicking othercards are enabled.
+ */ 
 function checkCards(){
 		
 		var card1 = opened_cards[opened_cards.length - 1];
@@ -133,12 +153,21 @@ function checkCards(){
 	enableCardClick();
 }
 
+/*
+ * Increases move per 2 cards opened.
+ * And calls scoreStars to update stars in scoreboard
+ */
+
 function moveCounter(){
 	moves++;
 	$('.moves').text(moves);
 	
 	scoreStars();
 }
+
+/*
+ * Depending on moves, changes the star score.
+ */
 
 function scoreStars(){
 
@@ -177,6 +206,15 @@ function popupVictory() {
 		} 
 
 }
+
+/*
+ * function of group of functions whenever a card is clicked.
+ * It checks wheter the clicked target is a class of card,
+ * then calls showCard function for that target.
+ * If there is one card open while clicking another,
+ * It delays checkCard function and disables clicking on other cards
+ * Also when clicked, it initiates timer.
+ */
  
 function clicky(event){
 	if (event.target.className == "card"){
@@ -194,8 +232,17 @@ function clicky(event){
 		}
 }
  
- /* https://stackoverflow.com/questions/17650776/add-remove-html-inside-div-using-javascript
- *  link helped me a lot to add messages/stars to victory screen
+/* https://stackoverflow.com/questions/17650776/add-remove-html-inside-div-using-javascript
+ * link helped me a lot to add messages/stars to victory screen
+ *
+ * if matched_cards array length is equal to card_list length, then function starts.
+ * Depending on stars player obtained, the information is passed to victory-screen
+ *
+ * then, appropriate custom message is passed to victory-screen.
+ * timeUpdate is set to false to prevent updating time (aka timer is stopped)
+ *
+ * after that, victory modal is called.
+ *
  */
   
  function checkVictory(){
@@ -248,7 +295,11 @@ function clicky(event){
 	 }
  }
  
- 
+/*
+ * resets values of variables and changed elements into their initial values.
+ * calls shuffleDeck to create a different deck.
+ * calls enableCardClick to initiate clicking function.
+ */
 
  
  function restart(){
