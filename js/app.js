@@ -5,12 +5,6 @@
 ///////////
 // Jk, I've decided to tidy up the code, put everything into
 // meaningful functions.
-
-// Put a modal for restart button, saying are you sure buddy kind of stuff
-// Yeah, also while doing that remember to put a cancel button.
-// Also put a play again button to popupVictory.. No need for cancel button, since we can go out by
-// clicking out of the box? hmmmmmmm
-
  
 /*
  * Variables
@@ -104,10 +98,7 @@ function enableCardClick(){
 }
 
  
-/*
- * YOU KNOW YOU SHOULD SHOW THE WRONG CARD FOR 1SEC OR SOMETHING AND THEN CLOSE IT
- * THAT IS HOW THE GAME IS PLAYED, IT IS NOT A RUSSIAN ROULETTE!
- */
+
 function showCard(card){
 	card.className = "card open show";
 	opened_cards.push(card);
@@ -209,13 +200,22 @@ function clicky(event){
   
  function checkVictory(){
 	 if (matched_cards.length == card_list.length){
-		 i = 0;
-		 for(i=0;i < stars; i++){
-			 starScore = document.createElement('i');
-			 starScore.className = "fa fa-star";
-			 document.getElementById('star-score').appendChild(starScore);
+		 {
+			 for(i=0;i < stars; i++){
+				 starScore = document.createElement('i');
+				 starScore.className = "fa fa-star";
+				 document.getElementById('star-score').appendChild(starScore);
+			 }
+			 
+			 if (stars == 0){
+				 while(i<3){
+				 starScore = document.createElement('i');
+				 starScore.className = "fa fa-star-o";
+				 document.getElementById('star-score').appendChild(starScore);
+				 i++;
+				}
+			}
 		 }
-		 
 		 para = document.getElementById("custom-message");
 		 switch(stars){
 			 case 0:
@@ -235,7 +235,7 @@ function clicky(event){
 				para.appendChild(text3);
 				 break;
 			 case 4:
-				text4 = document.createTextNode("Either you are cheating or you are very very very very lucky person!");
+				text4 = document.createTextNode("Either you are cheating or you are a very very very very lucky person!");
 				para.appendChild(text4);
 				 break;
 			 case -1:
@@ -247,6 +247,7 @@ function clicky(event){
 		 popupVictory();
 	 }
  }
+ 
  
 
  
@@ -265,6 +266,8 @@ function clicky(event){
 	stars = 3;
 	$('.stars i').removeClass("fa-star-o");
 	$('.stars i').addClass("fa-star");
+	
+	document.getElementById('star-score').innerHTML= "";
 	
 	shuffleDeck();
 	
