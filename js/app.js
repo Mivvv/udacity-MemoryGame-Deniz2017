@@ -96,7 +96,14 @@ function shuffleDeck(){
 	}	// add cards with HTML into deck class
 
 }
-	 
+
+function enableCardClick(){
+	$('.card').on('click', function(event){
+		clicky(event);
+	});
+}
+
+ 
 /*
  * YOU KNOW YOU SHOULD SHOW THE WRONG CARD FOR 1SEC OR SOMETHING AND THEN CLOSE IT
  * THAT IS HOW THE GAME IS PLAYED, IT IS NOT A RUSSIAN ROULETTE!
@@ -108,11 +115,10 @@ function showCard(card){
 
 
  
-function checkCards(card){
-	if (opened_cards.length > 1){
+function checkCards(){
 		
-		card1 = opened_cards[opened_cards.length - 1];
-		card2 = opened_cards[opened_cards.length - 2];
+		var card1 = opened_cards[opened_cards.length - 1];
+		var card2 = opened_cards[opened_cards.length - 2];
 		
 		moveCounter();
 		
@@ -133,8 +139,7 @@ function checkCards(card){
 			opened_cards.pop();
 			opened_cards.pop();
 		}
-		
-	}
+	enableCardClick();
 }
 
 function moveCounter(){
@@ -189,8 +194,10 @@ function clicky(event){
 			
 			showCard(card);
 			
-			checkCards(card);
-			
+			if (opened_cards.length > 1){
+			$('.card').off('click');
+			setTimeout(checkCards, 650);
+			}
 			timer();
 
 		}
@@ -261,9 +268,7 @@ function clicky(event){
 	
 	shuffleDeck();
 	
-	$('.card').on('click', function(event){
-		clicky(event);
-	});
+	enableCardClick();
 		
 	
 	var popup = document.getElementById('victory-container');
@@ -276,11 +281,9 @@ function clicky(event){
  */
 
 deck_elements = card_list.concat(card_list); // Created the deck
-shuffleDeck()
+shuffleDeck();
 
-$('.card').on('click', function(event){
-		clicky(event);
-});
+enableCardClick();
 
 $('.restart').on('click', function (event) {
     event.preventDefault();
