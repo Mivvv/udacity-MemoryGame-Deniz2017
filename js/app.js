@@ -10,7 +10,7 @@
  * Variables
  */
  
-var card_list = ["diamond","paper-plane-o","anchor","bolt","cube","leaf","bicycle","bomb"];
+const card_list = ["diamond","paper-plane-o","anchor","bolt","cube","leaf","bicycle","bomb"];
 
 var opened_cards = [];
 
@@ -183,12 +183,6 @@ function scoreStars(){
 		$('.stars li:nth-child(2) .fa').removeClass("fa-star");
 		$('.stars li:nth-child(2) .fa').addClass("fa-star-o");
 		stars = 1;
-	}else if (moves >=23 && moves <= 28){
-		$('.stars li .fa').removeClass("fa-star");
-		$('.stars li .fa').addClass("fa-star-o");
-		stars = 0;
-	}else if (moves >=29){
-		stars = -1;
 	}
 }
 
@@ -253,22 +247,9 @@ function clicky(event){
 				 starScore.className = "fa fa-star";
 				 document.getElementById('star-score').appendChild(starScore);
 			 }
-			 
-			 if (stars == 0){
-				 while(i<3){
-				 starScore = document.createElement('i');
-				 starScore.className = "fa fa-star-o";
-				 document.getElementById('star-score').appendChild(starScore);
-				 i++;
-				}
-			}
 		 }
 		 para = document.getElementById("custom-message");
 		 switch(stars){
-			 case 0:
-				text0 = document.createTextNode("Try harder next time!");
-				para.appendChild(text0);
-				break;
 			 case 1:
 				text1 = document.createTextNode("You can do better! Keep going!");
 				para.appendChild(text1);
@@ -285,10 +266,6 @@ function clicky(event){
 				text4 = document.createTextNode("Either you are cheating or you are a very very very very lucky person!");
 				para.appendChild(text4);
 				 break;
-			 case -1:
-				textMinus = document.createTextNode("Dude.... Really?");
-				para.appendChild(textMinus);
-				break;
 		 }
 		 timeUpdate = false;
 		 popupVictory();
